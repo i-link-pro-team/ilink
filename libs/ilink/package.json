@@ -1,6 +1,6 @@
 {
   "name": "@ilink-dev/cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Console ilink tools",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
