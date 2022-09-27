@@ -2,7 +2,7 @@
 
 Console ilink tools
 
-[![npm version](https://badge.fury.io/js/ilink.svg)](https://badge.fury.io/js/ilink-console-tools)
+[![npm version](https://badge.fury.io/js/ilink-console-tools.svg)](https://badge.fury.io/js/ilink-console-tools)
 [![monthly downloads](https://badgen.net/npm/dm/ilink-console-tools)](https://www.npmjs.com/package/ilink-console-tools)
 
 ## env-to-consul - Copy content of .env file(s) to consul
