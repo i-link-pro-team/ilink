@@ -1,5 +1,5 @@
 {
-  "npmScope": "ilink",
+  "npmScope": "ilink-dev",
   "affected": {
     "defaultBase": "develop"
   },

@@ -1,5 +1,5 @@
 {
-  "name": "ilink",
+  "name": "@ilink-dev/cli",
   "version": "0.0.2",
   "description": "Console ilink tools",
   "license": "MIT",
