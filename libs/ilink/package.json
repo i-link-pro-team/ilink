@@ -1,0 +1,53 @@
+{
+  "name": "ilink",
+  "version": "0.0.1",
+  "description": "Console ilink tools",
+  "license": "MIT",
+  "author": "EndyKaufman <admin@site15.ru>",
+  "keywords": [
+    "consul",
+    "env",
+    "sync",
+    "files-to-consul",
+    "files2consul",
+    "cli",
+    "ilink"
+  ],
+  "bugs": {
+    "url": "https://github.com/i-link-pro-team/ilink/issues"
+  },
+  "homepage": "https://github.com/i-link-pro-team/ilink",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-link-pro-team/ilink.git"
+  },
+  "maintainers": [
+    {
+      "name": "EndyKaufman",
+      "email": "admin@site15.ru"
+    }
+  ],
+  "bin": {
+    "ilink": "./src/main.js"
+  },
+  "dependencies": {
+    "consul": "^1.0.1",
+    "dotenv": "^16.0.2",
+    "tslib": "2.0.0",
+    "log4js": "6.6.1",
+    "@nestjs/common": "8.2.4",
+    "@nestjs/core": "8.2.4",
+    "nestjs-console": "8.0.0",
+    "recursive-readdir": "2.2.2",
+    "replace-ext": "2.0.0",
+    "sort-paths": "1.1.1",
+    "rxjs": "7.1.0"
+  },
+  "i18n": [
+    {
+      "scope": "ilink",
+      "path": "src/i18n",
+      "strategy": "join"
+    }
+  ]
+}
