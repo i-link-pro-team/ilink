@@ -1,0 +1,33 @@
+{
+  "sourceRoot": "libs/ilink/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ilink",
+        "tsConfig": "libs/ilink/tsconfig.lib.json",
+        "packageJson": "libs/ilink/package.json",
+        "main": "libs/ilink/src/index.ts",
+        "assets": ["libs/ilink/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/ilink/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ilink"],
+      "options": {
+        "jestConfig": "libs/ilink/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
