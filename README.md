@@ -1,4 +1,4 @@
-# ilink
+# ilink-console-tools
 
 Console ilink tools
 
@@ -7,10 +7,10 @@ Console ilink tools
 
 ## env-to-consul - Copy content of .env file(s) to consul
 
-> npx ilink "env-to-consul" "--help"
+> npx ilink-console-tools "env-to-consul" "--help"
 
 ```sh
-Usage: ilink env-to-consul [options]
+Usage: ilink-console-tools env-to-consul [options]
 
 Copy content of .env file(s) to consul
 
