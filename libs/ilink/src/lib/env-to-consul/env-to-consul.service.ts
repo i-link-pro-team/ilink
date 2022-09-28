@@ -7,7 +7,7 @@ import { basename, resolve, sep } from 'path';
 import recursiveReadDir from 'recursive-readdir';
 import sortPaths from 'sort-paths';
 import { UtilsService } from '../utils/utils.service';
-import { EnvToConsulConfig } from './files-to-consul.config';
+import { EnvToConsulConfig } from './env-to-consul.config';
 
 @Injectable()
 export class EnvToConsulService {

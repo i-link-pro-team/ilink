@@ -3,8 +3,8 @@ import { UtilsService } from '../utils/utils.service';
 import {
   DEFAULT_ENV_TO_CONSUL_CONFIG,
   EnvToConsulConfig,
-} from './files-to-consul.config';
-import { EnvToConsulService } from './files-to-consul.service';
+} from './env-to-consul.config';
+import { EnvToConsulService } from './env-to-consul.service';
 
 @Console()
 export class EnvToConsulCommands {

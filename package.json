@@ -9,7 +9,9 @@
     "env",
     "sync",
     "files-to-consul",
+    "env-to-consul",
     "files2consul",
+    "env2consul",
     "cli",
     "ilink"
   ],
