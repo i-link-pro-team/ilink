@@ -24,14 +24,14 @@ Options:
   --help                        display help for command
 ```
 
-## consul-to-env - Save environment variables from consul to .env file content
+## consul-to-env - Save environment variables from consul to .env file
 
 > npx ilink-console-tools "consul-to-env" "--help"
 
 ```sh
 Usage: ilink-console-tools consul-to-env [options]
 
-Save environment variables from consul to .env file content
+Save environment variables from consul to .env file
 
 Options:
   -f,--path [string]            path to file with .env for save or update variables (default: .env)

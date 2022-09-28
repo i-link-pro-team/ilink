@@ -19,7 +19,7 @@ export class ConsulToEnvCommands {
 
   @Command({
     command: 'consul-to-env',
-    description: 'Save environment variables from consul to .env file content',
+    description: 'Save environment variables from consul to .env file',
     options: [
       {
         flags: '-f,--path [string]',
