@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/i-link-pro-team/ilink/compare/v0.0.5...v0.0.6) (2022-09-28)
+
+### Features
+
+- add consul-to-env command ([c7724f1](https://github.com/i-link-pro-team/ilink/commit/c7724f193975a74bb757ecff13be974e7a44018e))
+
 ### [0.0.5](https://github.com/i-link-pro-team/ilink/compare/v0.0.4...v0.0.5) (2022-09-27)
 
 ### Bug Fixes
