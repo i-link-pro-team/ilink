@@ -33,7 +33,7 @@ export class EnvToConsulService {
     try {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const sourceFilesPath = existsSync(path!) ? path! : resolve(path!);
-      this.logger.info('Start load envs to consul...');
+      this.logger.info('Start load environment variables to consul...');
       this.logger.debug(
         'Options:',
         JSON.stringify({
@@ -132,9 +132,9 @@ export class EnvToConsulService {
           }
         }
       }
-      this.logger.info('End load envs to consul!');
+      this.logger.info('End load environment variables to consul!');
     } catch (err) {
-      this.logger.warn(`Error in load envs to consul`);
+      this.logger.warn(`Error in load environment variables to consul`);
       this.logger.error(err, err.stack);
       throw err;
     }

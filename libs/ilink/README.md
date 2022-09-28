@@ -23,3 +23,24 @@ Options:
   -s,--consul-secure [boolean]  work in secure mode (default: false)
   --help                        display help for command
 ```
+
+## consul-to-env - Save environment variables from consul to .env file content
+
+> npx ilink-console-tools "consul-to-env" "--help"
+
+```sh
+Usage: ilink-console-tools consul-to-env [options]
+
+Save environment variables from consul to .env file content
+
+Options:
+  -f,--path [string]            path to file with .env for save or update variables (default: .env)
+  -c,--clear [boolean]          clear .env file before save environment variables from consul (default: false)
+  -h,--consul-host [string]     host of consul server (default: localhost)
+  -p,--consul-port [string]     port of consul server (default: 8500)
+  -k,--consul-key [string]      key in consul for retrieve environment variables
+  -t,--consul-token [string]    token for work with consul server
+  -d,--consul-dc [string]       dc of consul server
+  -s,--consul-secure [boolean]  work in secure mode (default: false)
+  --help                        display help for command
+```

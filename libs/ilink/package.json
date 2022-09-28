@@ -12,6 +12,10 @@
     "env-to-consul",
     "files2consul",
     "env2consul",
+    "consul-to-files",
+    "consul-to-env",
+    "consul2files",
+    "consul2env",
     "cli",
     "ilink"
   ],

@@ -41,3 +41,4 @@ Thumbs.db
 # Envs
 .env
 jest.result.json
+libs/ilink/tests/e2e/fixtures/new.env
