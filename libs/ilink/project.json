@@ -6,6 +6,22 @@
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "externalDependencies": [
+          "log4js",
+          "nestjs-console",
+          "recursive-readdir",
+          "sort-paths",
+          "@nestjs/common",
+          "@nestjs/core",
+          "consul",
+          "dotenv",
+          "fast-deep-equal",
+          "lodash.mergewith",
+          "reflect-metadata",
+          "rxjs",
+          "source-map-support",
+          "tslib"
+        ],
         "outputPath": "dist/libs/ilink",
         "tsConfig": "libs/ilink/tsconfig.lib.json",
         "packageJson": "libs/ilink/package.json",
