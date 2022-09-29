@@ -1,7 +1,7 @@
 {
   "name": "ilink",
   "description": "Console ilink tools",
-  "version": "0.0.8",
+  "version": "0.0.7",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "keywords": [
@@ -39,7 +39,7 @@
     "rucken": "rucken",
     "start": "node ./dist/libs/ilink/src/main.js",
     "build": "npm run nx -- build ilink && ./scripts/add-header-to-ilink.js && npm run lib:build-changelog",
-    "release": "standard-version",
+    "release": "standard-version -a",
     "publish": "npm publish ./dist/libs/ilink",
     "create-release": "npm run test && npm run build && npm run release && git push --follow-tags origin develop",
     "test": "npm run build && npm run nx -- test ilink --skip-nx-cache --json --outputFile=jest.result.json --runInBand --testLocationInResults",
