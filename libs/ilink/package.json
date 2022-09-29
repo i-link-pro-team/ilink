@@ -1,6 +1,6 @@
 {
   "name": "ilink-console-tools",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Console ilink tools",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
@@ -19,6 +19,9 @@
     "cli",
     "ilink"
   ],
+  "scripts": {
+    "postinstall": "npm i nestjs-console"
+  },
   "bugs": {
     "url": "https://github.com/i-link-pro-team/ilink/issues"
   },
