@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/i-link-pro-team/ilink/compare/v0.0.9...v0.1.1) (2022-09-29)
+
+### Features
+
+- append post install for correct install all need deps inside lib ([c017c45](https://github.com/i-link-pro-team/ilink/commit/c017c453d82def657fd69a2c78801dc19e3358c9))
+
 ### [0.0.9](https://github.com/i-link-pro-team/ilink/compare/v0.0.7...v0.0.9) (2022-09-29)
 
 ### Bug Fixes
