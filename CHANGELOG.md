@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/i-link-pro-team/ilink/compare/v0.0.6...v0.0.7) (2022-09-29)
+
+### Features
+
+- move all need deps to externalDependencies, for correct work in project with different versions of nestjs ([ded4984](https://github.com/i-link-pro-team/ilink/commit/ded49844a412ce52b9cca3385bce02078c868c00))
+
 ### [0.0.6](https://github.com/i-link-pro-team/ilink/compare/v0.0.5...v0.0.6) (2022-09-28)
 
 ### Features
