@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/i-link-pro-team/ilink/compare/v0.1.1...v0.1.2) (2022-10-04)
+
+### Bug Fixes
+
+- quote values with space on save consul data to env files ([b21a4d0](https://github.com/i-link-pro-team/ilink/commit/b21a4d0127ec49f6b1dfa7e13d2969f42af04b89))
+
 ### [0.1.1](https://github.com/i-link-pro-team/ilink/compare/v0.0.9...v0.1.1) (2022-09-29)
 
 ### Features
