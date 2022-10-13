@@ -25,7 +25,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "ilink": ["libs/ilink/src/index.ts"]
+      "@ilink-dev/ilink-console-tools": [
+        "libs/ilink-console-tools/src/index.ts"
+      ],
+      "@ilink-dev/nestjs-consul-kv-realtime": [
+        "libs/nestjs-consul-kv-realtime/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

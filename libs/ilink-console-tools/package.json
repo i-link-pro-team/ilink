@@ -74,7 +74,7 @@
   },
   "i18n": [
     {
-      "scope": "ilink",
+      "scope": "ilink-console-tools",
       "path": "src/i18n",
       "strategy": "join"
     }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 
-const filePath = 'dist/libs/ilink/src/main.js';
+const filePath = 'dist/libs/ilink-console-tools/src/main.js';
 const content = fs.readFileSync(filePath).toString();
 const header = '#!/usr/bin/env node';
 

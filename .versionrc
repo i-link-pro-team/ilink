@@ -1,7 +1,7 @@
 {
   "bumpFiles": [
     {
-      "filename": "./libs/ilink/package.json",
+      "filename": "./libs/ilink-console-tools/package.json",
       "type": "json"
     },
     {

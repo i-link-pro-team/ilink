@@ -1,5 +1,5 @@
 {
-  "sourceRoot": "libs/ilink/src",
+  "sourceRoot": "libs/ilink-console-tools/src",
   "projectType": "library",
   "targets": {
     "build": {
@@ -22,25 +22,25 @@
           "source-map-support",
           "tslib"
         ],
-        "outputPath": "dist/libs/ilink",
-        "tsConfig": "libs/ilink/tsconfig.lib.json",
-        "packageJson": "libs/ilink/package.json",
-        "main": "libs/ilink/src/index.ts",
-        "assets": ["libs/ilink/*.md"]
+        "outputPath": "dist/libs/ilink-console-tools",
+        "tsConfig": "libs/ilink-console-tools/tsconfig.lib.json",
+        "packageJson": "libs/ilink-console-tools/package.json",
+        "main": "libs/ilink-console-tools/src/index.ts",
+        "assets": ["libs/ilink-console-tools/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ilink/**/*.ts"]
+        "lintFilePatterns": ["libs/ilink-console-tools/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ilink"],
+      "outputs": ["coverage/libs/ilink-console-tools"],
       "options": {
-        "jestConfig": "libs/ilink/jest.config.ts",
+        "jestConfig": "libs/ilink-console-tools/jest.config.ts",
         "passWithNoTests": true
       }
     }
