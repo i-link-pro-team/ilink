@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "ilink": "libs/ilink"
+    "ilink-console-tools": "libs/ilink-console-tools",
+    "nestjs-consul-kv-realtime": "libs/nestjs-consul-kv-realtime"
   }
 }

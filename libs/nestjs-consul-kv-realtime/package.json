@@ -1,0 +1,45 @@
+{
+  "name": "nestjs-consul-kv-realtime",
+  "version": "0.1.2",
+  "description": "NestJS library for work with consul-kv",
+  "keywords": [
+    "nestjs",
+    "nest",
+    "consul",
+    "decorators",
+    "consul-kv"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "EndyKaufman <admin@site15.ru>",
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6"
+  },
+  "bugs": {
+    "url": "https://github.com/i-link-pro-team/ilink/issues"
+  },
+  "homepage": "https://github.com/i-link-pro-team/ilink",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-link-pro-team/ilink.git"
+  },
+  "maintainers": [
+    {
+      "name": "EndyKaufman",
+      "email": "admin@site15.ru"
+    }
+  ],
+  "dependencies": {
+    "tslib": "2.0.0"
+  },
+  "i18n": [
+    {
+      "scope": "nestjs-consul-kv-realtime",
+      "path": "src/i18n",
+      "strategy": "join"
+    }
+  ]
+}
