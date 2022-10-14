@@ -3,7 +3,24 @@ Console ilink tools
 [![npm version](https://badge.fury.io/js/ilink-console-tools.svg)](https://badge.fury.io/js/ilink-console-tools)
 [![monthly downloads](https://badgen.net/npm/dm/ilink-console-tools)](https://www.npmjs.com/package/ilink-console-tools)
 
-## env-to-consul - Copy content of .env file(s) to consul
+## Installation
+
+```bash
+npm i -g ilink-console-tools
+```
+
+## Usage
+
+```bash
+# upload from file to consul-kv
+ilink-console-tools env-to-consul --path=.env --consul-token=myCustomToken --consul-host=localhost
+# download from consul-kv to file
+ilink-console-tools consul-to-env --consul-token=myCustomToken --path=.env --consul-host=localhost
+```
+
+## Consul utils
+
+### env-to-consul - Copy content of .env file(s) to consul
 
 > npx ilink-console-tools "env-to-consul" "--help"
 
@@ -24,7 +41,7 @@ Options:
   --help                        display help for command
 ```
 
-## consul-to-env - Save environment variables from consul to .env file
+### consul-to-env - Save environment variables from consul to .env file
 
 > npx ilink-console-tools "consul-to-env" "--help"
 

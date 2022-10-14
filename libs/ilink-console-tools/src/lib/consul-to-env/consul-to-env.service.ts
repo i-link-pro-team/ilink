@@ -80,7 +80,10 @@ export class ConsulToEnvService {
       const envKeys = Object.keys(envData);
       for (let index = 0; index < envKeys.length; index++) {
         const key = envKeys[index];
-        values.push(`${key}=${envData[key]}`);
+        const value = envData[key];
+        values.push(
+          `${key}=${value.split(' ').length > 1 ? `"${value}"` : value}`
+        );
       }
       writeFileSync(envFilePath, values.join('\n'));
       this.logger.info('End save environment variables from consul to file!');

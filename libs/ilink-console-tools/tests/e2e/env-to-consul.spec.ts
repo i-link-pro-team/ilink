@@ -20,7 +20,7 @@ describe('EnvToConsul (e2e)', () => {
       )
       .withEnv('CONSUL_HTTP_TOKEN', CONSUL_HTTP_TOKEN)
       .start();
-    await new Promise((resolve) => setTimeout(resolve, 30000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
   });
 
   afterAll(async () => {

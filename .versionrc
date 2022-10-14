@@ -1,7 +1,11 @@
 {
   "bumpFiles": [
     {
-      "filename": "./libs/ilink/package.json",
+      "filename": "./libs/ilink-console-tools/package.json",
+      "type": "json"
+    },
+    {
+      "filename": "./libs/nestjs-consul-kv-realtime/package.json",
       "type": "json"
     },
     {

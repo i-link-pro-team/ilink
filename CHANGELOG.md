@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/i-link-pro-team/ilink/compare/v0.1.2...v0.1.3) (2022-10-14)
+
+### Features
+
+- **nestjs-consul-kv-realtime:** add nestjs library for work with consul-kv ([#4](https://github.com/i-link-pro-team/ilink/issues/4)) ([e975110](https://github.com/i-link-pro-team/ilink/commit/e9751107fc59a3e2d64f06900c4aa23eebd8eec1))
+
+### Bug Fixes
+
+- update deps ([cd453bc](https://github.com/i-link-pro-team/ilink/commit/cd453bcf8252f46d4c3d6beec7d6303471e2090e))
+
+### [0.1.2](https://github.com/i-link-pro-team/ilink/compare/v0.1.1...v0.1.2) (2022-10-04)
+
+### Bug Fixes
+
+- quote values with space on save consul data to env files ([b21a4d0](https://github.com/i-link-pro-team/ilink/commit/b21a4d0127ec49f6b1dfa7e13d2969f42af04b89))
+
 ### [0.1.1](https://github.com/i-link-pro-team/ilink/compare/v0.0.9...v0.1.1) (2022-09-29)
 
 ### Features
