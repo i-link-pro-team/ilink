@@ -61,3 +61,7 @@ Options:
   -s,--consul-secure [boolean]  work in secure mode (default: false)
   --help                        display help for command
 ```
+
+## License
+
+MIT
