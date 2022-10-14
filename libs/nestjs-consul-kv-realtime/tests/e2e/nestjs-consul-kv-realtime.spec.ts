@@ -577,6 +577,10 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
         this.connected = true;
       }
 
+      async waitEndOfAllCurrentOperations() {
+        return true;
+      }
+
       async disconnect() {
         this.connected = false;
       }
@@ -593,9 +597,10 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
         key: 'file',
         factory: async (
           newConsulValue: { key1: string },
-          oldValue: ExternalLibrary
+          oldValue?: ExternalLibrary
         ) => {
           if (oldValue) {
+            await oldValue.waitEndOfAllCurrentOperations();
             await oldValue.disconnect();
           }
           const externalLibrary = new ExternalLibrary();

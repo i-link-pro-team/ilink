@@ -42,3 +42,9 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           result-file: ilink-console-tools-jest.result.json
+
+      - uses: tanmen/jest-reporter@v1
+        if: always()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-file: nestjs-consul-kv-realtime-jest.result.json
