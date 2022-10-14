@@ -40,5 +40,5 @@ Thumbs.db
 
 # Envs
 .env
-jest.result.json
+*jest.result.json
 libs/ilink-console-tools/tests/e2e/fixtures/new.env

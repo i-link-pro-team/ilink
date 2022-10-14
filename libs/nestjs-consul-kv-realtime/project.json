@@ -1,6 +1,18 @@
 {
   "sourceRoot": "libs/nestjs-consul-kv-realtime/src",
   "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nestjs-consul-kv-realtime",
+        "tsConfig": "libs/nestjs-consul-kv-realtime/tsconfig.lib.json",
+        "packageJson": "libs/nestjs-consul-kv-realtime/package.json",
+        "main": "libs/nestjs-consul-kv-realtime/src/index.ts",
+        "assets": ["libs/nestjs-consul-kv-realtime/*.md"],
+        "updateBuildableProjectDepsInPackageJson": false
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
@@ -13,7 +25,12 @@
       "outputs": ["coverage/libs/nestjs-consul-kv-realtime"],
       "options": {
         "jestConfig": "libs/nestjs-consul-kv-realtime/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "skipNxCache": true,
+        "json": true,
+        "outputFile": "nestjs-consul-kv-realtime-jest.result.json",
+        "runInBand": true,
+        "testLocationInResults": true
       }
     }
   },

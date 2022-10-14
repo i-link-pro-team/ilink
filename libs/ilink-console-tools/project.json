@@ -41,7 +41,12 @@
       "outputs": ["coverage/libs/ilink-console-tools"],
       "options": {
         "jestConfig": "libs/ilink-console-tools/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "skipNxCache": true,
+        "json": true,
+        "outputFile": "ilink-console-tools-jest.result.json",
+        "runInBand": true,
+        "testLocationInResults": true
       }
     }
   },
