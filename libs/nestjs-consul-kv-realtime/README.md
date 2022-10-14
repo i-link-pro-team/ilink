@@ -1,3 +1,5 @@
+NestJS library for work with consul-kv
+
 [![npm version](https://badge.fury.io/js/nestjs-consul-kv-realtime.svg)](https://badge.fury.io/js/nestjs-consul-kv-realtime)
 [![monthly downloads](https://badgen.net/npm/dm/nestjs-consul-kv-realtime)](https://www.npmjs.com/package/nestjs-consul-kv-realtime)
 

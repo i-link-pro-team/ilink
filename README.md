@@ -1,48 +1,75 @@
-# ilink-console-tools
-
-Console ilink tools
+# Console ilink tools
 
 [![npm version](https://badge.fury.io/js/ilink-console-tools.svg)](https://badge.fury.io/js/ilink-console-tools)
 [![monthly downloads](https://badgen.net/npm/dm/ilink-console-tools)](https://www.npmjs.com/package/ilink-console-tools)
 
-## env-to-consul - Copy content of .env file(s) to consul
+## Installation
 
-> npx ilink-console-tools "env-to-consul" "--help"
-
-```sh
-Usage: ilink-console-tools env-to-consul [options]
-
-Copy content of .env file(s) to consul
-
-Options:
-  -f,--path [string]            path to file with .env variables or path to folder with many .env files (default: .env)
-  -h,--consul-host [string]     host of consul server (default: localhost)
-  -p,--consul-port [string]     port of consul server (default: 8500)
-  -k,--consul-key [string]      root key to append .env file(s)
-  -t,--consul-token [string]    token for work with consul server
-  -c,--consul-clear [boolean]   clear all values and sub values in consul key (default: false)
-  -d,--consul-dc [string]       dc of consul server
-  -s,--consul-secure [boolean]  work in secure mode (default: false)
-  --help                        display help for command
+```bash
+npm i -g ilink-console-tools
 ```
 
-## consul-to-env - Save environment variables from consul to .env file
+## Links
 
-> npx ilink-console-tools "consul-to-env" "--help"
+https://github.com/i-link-pro-team/ilink/blob/master/libs/ilink-console-tools/README.md - full readme
 
-```sh
-Usage: ilink-console-tools consul-to-env [options]
+## Usage
 
-Save environment variables from consul to .env file
-
-Options:
-  -f,--path [string]            path to file with .env for save or update variables (default: .env)
-  -c,--clear [boolean]          clear .env file before save environment variables from consul (default: false)
-  -h,--consul-host [string]     host of consul server (default: localhost)
-  -p,--consul-port [string]     port of consul server (default: 8500)
-  -k,--consul-key [string]      key in consul for retrieve environment variables
-  -t,--consul-token [string]    token for work with consul server
-  -d,--consul-dc [string]       dc of consul server
-  -s,--consul-secure [boolean]  work in secure mode (default: false)
-  --help                        display help for command
+```bash
+# upload from file to consul-kv
+ilink-console-tools env-to-consul --path=.env --consul-token=myCustomToken --consul-host=localhost
+# download from consul-kv to file
+ilink-console-tools consul-to-env --consul-token=myCustomToken --path=.env --consul-host=localhost
 ```
+
+# NestJS library for work with consul-kv
+
+[![npm version](https://badge.fury.io/js/nestjs-consul-kv-realtime.svg)](https://badge.fury.io/js/nestjs-consul-kv-realtime)
+[![monthly downloads](https://badgen.net/npm/dm/nestjs-consul-kv-realtime)](https://www.npmjs.com/package/nestjs-consul-kv-realtime)
+
+## Installation
+
+```bash
+npm i --save consul nestjs-consul-kv-realtime
+```
+
+## Links
+
+https://github.com/i-link-pro-team/ilink/blob/master/libs/nestjs-consul-kv-realtime/README.md - full readme
+
+## Usage
+
+### Simple usage with global watchers for consul-kv
+
+```typescript
+import { Module } from '@nestjs/common';
+import { NestjsConsulKvRealtimeModule } from 'nestjs-consul-kv-realtime';
+
+@Module({
+  imports: [
+    NestjsConsulKvRealtimeModule.forRootAsync({
+      useFactory: async () => ({
+        port: '8500',
+        host: 'localhost',
+        defaults: {
+          token: `CONSUL_HTTP_TOKEN`,
+        },
+        watchers: [
+          {
+            interval: 1000,
+            key: 'consul-key',
+            callback: async (value: { key: string }) => {
+              console.log('New value from consul:', value);
+            },
+          },
+        ],
+      }),
+    }),
+  ],
+})
+export class AppModule {}
+```
+
+## License
+
+MIT
