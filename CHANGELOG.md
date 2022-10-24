@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/i-link-pro-team/ilink/compare/v0.1.3...v0.1.4) (2022-10-24)
+
+### Bug Fixes
+
+- quote all non numeric strings ([fe918ef](https://github.com/i-link-pro-team/ilink/commit/fe918efbfd1bcd7d2a0e4ee6de93c811ae986080))
+
 ### [0.1.3](https://github.com/i-link-pro-team/ilink/compare/v0.1.2...v0.1.3) (2022-10-14)
 
 ### Features
