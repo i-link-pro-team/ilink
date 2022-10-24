@@ -36,9 +36,9 @@ describe('EnvToConsul (e2e)', () => {
         token: CONSUL_HTTP_TOKEN,
       },
     });
-    await consul.kv.set('file/key1', '"value1"');
+    await consul.kv.set('file/key1', '"value&1"');
     const result = await consul.kv.get<{ Value: string }>('file/key1');
-    expect(result.Value).toEqual('"value1"');
+    expect(result.Value).toEqual('"value&1"');
   });
 
   it('check load one file to consul', async () => {

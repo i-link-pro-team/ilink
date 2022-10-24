@@ -37,9 +37,9 @@ describe('ConsulToEnv (e2e)', () => {
         token: CONSUL_HTTP_TOKEN,
       },
     });
-    await consul.kv.set('file/key1', '"value1"');
+    await consul.kv.set('file/key1', '"value&1"');
     const result = await consul.kv.get<{ Value: string }>('file/key1');
-    expect(result.Value).toEqual('"value1"');
+    expect(result.Value).toEqual('"value&1"');
   });
 
   it('save environment variables from consul to file', async () => {
@@ -68,7 +68,7 @@ describe('ConsulToEnv (e2e)', () => {
     const envData = readFileSync(
       join(__dirname, 'fixtures/new.env')
     ).toString();
-    expect(envData).toEqual('key1=value2');
+    expect(envData).toEqual('key1="value2"');
   });
 
   it('update part of environment variables from consul to file', async () => {
@@ -98,12 +98,12 @@ describe('ConsulToEnv (e2e)', () => {
       join(__dirname, 'fixtures/new.env'),
       `${readFileSync(
         join(__dirname, 'fixtures/new.env')
-      ).toString()}\nkey2=new-value2`
+      ).toString()}\nkey2="new-value2"`
     );
 
     expect(
       readFileSync(join(__dirname, 'fixtures/new.env')).toString()
-    ).toEqual('key1=value2\nkey2=new-value2');
+    ).toEqual('key1="value2"\nkey2="new-value2"');
 
     // update exists env in consul
     const consul = new Consul({
@@ -114,7 +114,7 @@ describe('ConsulToEnv (e2e)', () => {
         token: CONSUL_HTTP_TOKEN,
       },
     });
-    await consul.kv.set('file/key1', '"new-value1"');
+    await consul.kv.set('file/key1', '"new-value&1"');
 
     const result = await execa('npm', [
       'start',
@@ -131,7 +131,7 @@ describe('ConsulToEnv (e2e)', () => {
     const envData = readFileSync(
       join(__dirname, 'fixtures/new.env')
     ).toString();
-    expect(envData).toEqual('key1=new-value1\nkey2=new-value2');
+    expect(envData).toEqual('key1="new-value&1"\nkey2="new-value2"');
   });
 
   it('overwrite environment variables in file from consul', async () => {
@@ -148,12 +148,12 @@ describe('ConsulToEnv (e2e)', () => {
     // update file
     writeFileSync(
       join(__dirname, 'fixtures/new.env'),
-      `key1=new-value1\nkey2=new-value2`
+      `key1="new-value&1"\nkey2="new-value2"`
     );
 
     expect(
       readFileSync(join(__dirname, 'fixtures/new.env')).toString()
-    ).toEqual(`key1=new-value1\nkey2=new-value2`);
+    ).toEqual(`key1="new-value&1"\nkey2="new-value2"`);
 
     const result = await execa('npm', [
       'start',
@@ -171,6 +171,6 @@ describe('ConsulToEnv (e2e)', () => {
     const envData = readFileSync(
       join(__dirname, 'fixtures/new.env')
     ).toString();
-    expect(envData).toEqual('key1=value2');
+    expect(envData).toEqual('key1="value2"');
   });
 });
