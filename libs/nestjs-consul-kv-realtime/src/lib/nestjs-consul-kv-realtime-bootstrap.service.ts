@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  OnApplicationBootstrap,
-  OnApplicationShutdown,
-} from '@nestjs/common';
+import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import Consul from 'consul';
 import { NestjsConsulKvRealtimeConfigService } from './nestjs-consul-kv-realtime.config';
 import { addAllFirstValuesForDecoratedFields } from './nestjs-consul-kv-realtime.decorators';
@@ -10,7 +6,7 @@ import { NestjsConsulKvRealtimeService } from './nestjs-consul-kv-realtime.servi
 
 @Injectable()
 export class NestjsConsulKvRealtimeBootstrapService
-  implements OnApplicationBootstrap, OnApplicationShutdown
+  implements OnModuleInit, OnModuleDestroy
 {
   constructor(
     private readonly nestjsConsulKvRealtimeConfigService: NestjsConsulKvRealtimeConfigService,
@@ -18,11 +14,11 @@ export class NestjsConsulKvRealtimeBootstrapService
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onApplicationShutdown(signal?: string | undefined) {
+  onModuleDestroy(signal?: string | undefined) {
     this.nestjsConsulKvRealtimeService.removeAllWatchers();
   }
 
-  async onApplicationBootstrap() {
+  async onModuleInit() {
     Object.assign(
       this.nestjsConsulKvRealtimeService,
       new Consul(this.nestjsConsulKvRealtimeConfigService).kv
