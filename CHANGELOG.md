@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/i-link-pro-team/ilink/compare/v0.1.4...v0.1.5) (2023-05-19)
+
+### Bug Fixes
+
+- replace OnApplicationBootstrap to OnModuleInit ([b107356](https://github.com/i-link-pro-team/ilink/commit/b107356e2e6b25e58372454190dcb3924376bb57))
+
 ### [0.1.4](https://github.com/i-link-pro-team/ilink/compare/v0.1.3...v0.1.4) (2022-10-24)
 
 ### Bug Fixes
