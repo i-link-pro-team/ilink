@@ -1,6 +1,6 @@
 {
   "name": "nestjs-consul-kv-realtime",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "NestJS library for work with consul-kv",
   "keywords": [
     "nestjs",
