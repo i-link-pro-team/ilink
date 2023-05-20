@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/i-link-pro-team/ilink/compare/v0.1.5...v0.1.6) (2023-05-20)
+
+### Features
+
+- move consul client to private property and append global interval for all watchers ([8347d5d](https://github.com/i-link-pro-team/ilink/commit/8347d5dbd312e67f58fef62b2fb9474b7c934500))
+
 ### [0.1.5](https://github.com/i-link-pro-team/ilink/compare/v0.1.4...v0.1.5) (2023-05-19)
 
 ### Bug Fixes
