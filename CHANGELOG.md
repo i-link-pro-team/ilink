@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/i-link-pro-team/ilink/compare/v0.1.7...v0.1.8) (2023-05-20)
+
+### Bug Fixes
+
+- hide all errors on getValue, append disable logging ([40086b0](https://github.com/i-link-pro-team/ilink/commit/40086b0af10f43bc338cf9f1c161d3764d999f22))
+
 ### [0.1.7](https://github.com/i-link-pro-team/ilink/compare/v0.1.6...v0.1.7) (2023-05-20)
 
 ### Features
