@@ -221,7 +221,7 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let stackFromWatcher: any = undefined;
 
-    class CustomErrror extends Error {}
+    class CustomError extends Error {}
 
     const module = await Test.createTestingModule({
       imports: [
@@ -238,7 +238,7 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
                 interval: 1000,
                 key: 'file',
                 callback: async () => {
-                  throw new CustomErrror();
+                  throw new CustomError();
                 },
               },
             ],
@@ -258,10 +258,10 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
     try {
       await app.init();
     } catch (err) {
-      expect(err instanceof CustomErrror).toBeTruthy();
+      expect(err instanceof CustomError).toBeTruthy();
 
-      expect(errFromWatcher).toBeUndefined();
-      expect(stackFromWatcher).toBeUndefined();
+      expect(errFromWatcher).not.toBeUndefined();
+      expect(stackFromWatcher).not.toBeUndefined();
     }
 
     const nestjsConsulKvRealtimeService =

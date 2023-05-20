@@ -14,7 +14,7 @@ export const NESTJS_CONSUL_KV_REALTIME_OPTIONS_TOKEN = Symbol(
 
 export type NestjsConsulKvRealtimeOptions = Omit<ConsulOptions, 'promisify'> & {
   watchers?: NestjsConsulKvRealtimeWatcher[];
-  logger?: Logger;
+  logger?: Logger | false;
   useUndefinedValueForErrors?: boolean;
   interval?: number;
 };
@@ -38,7 +38,7 @@ export class NestjsConsulKvRealtimeConfigService
   defaults?: CommonOptions | undefined;
 
   watchers: NestjsConsulKvRealtimeWatcher[] = [];
-  logger!: Logger;
+  logger!: Logger | false;
   useUndefinedValueForErrors?: boolean;
   interval?: number;
 
@@ -50,5 +50,12 @@ export class NestjsConsulKvRealtimeConfigService
         `${NestjsConsulKvRealtimeConfigService.name} not initialized`
       );
     }
+  }
+
+  getLogger() {
+    if (this.logger) {
+      return this.logger;
+    }
+    return undefined;
   }
 }

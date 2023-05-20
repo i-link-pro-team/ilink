@@ -91,7 +91,9 @@ export class NestjsConsulKvRealtimeService {
     const timeoutRef = setInterval(
       () =>
         this.watcherHandler(watcher, index).catch((err) =>
-          this.nestjsConsulKvRealtimeConfigService.logger.error(err, err.stack)
+          this.nestjsConsulKvRealtimeConfigService
+            .getLogger()
+            ?.error(err, err.stack)
         ),
       watcher.interval
     );
@@ -123,27 +125,29 @@ export class NestjsConsulKvRealtimeService {
     let consul: Consul.Kv;
     try {
       consul = this.getConsulKv();
+
+      const keys = await consul.keys<string[]>(key);
+      const envData = {};
+      for (let keyIndex = 0; keyIndex < keys.length; keyIndex++) {
+        const eachKey = keys[keyIndex].split(key + '/')[1];
+        const value = (await consul.get<{ Value: string }>(`${key}/${eachKey}`))
+          .Value;
+        try {
+          envData[eachKey] = JSON.parse(value);
+        } catch (err) {
+          envData[eachKey] = value;
+        }
+      }
+      return envData as T;
     } catch (err) {
       if (this.nestjsConsulKvRealtimeConfigService.useUndefinedValueForErrors) {
-        this.nestjsConsulKvRealtimeConfigService.logger.error(err, err.stack);
+        this.nestjsConsulKvRealtimeConfigService
+          .getLogger()
+          ?.error(err, err.stack);
         return undefined;
       }
       throw err;
     }
-
-    const keys = await consul.keys<string[]>(key);
-    const envData = {};
-    for (let keyIndex = 0; keyIndex < keys.length; keyIndex++) {
-      const eachKey = keys[keyIndex].split(key + '/')[1];
-      const value = (await consul.get<{ Value: string }>(`${key}/${eachKey}`))
-        .Value;
-      try {
-        envData[eachKey] = JSON.parse(value);
-      } catch (err) {
-        envData[eachKey] = value;
-      }
-    }
-    return envData as T;
   }
 
   private async watcherHandler(

@@ -1,10 +1,10 @@
 import { DynamicModule, Logger, Module } from '@nestjs/common';
 import { NestjsConsulKvRealtimeBootstrapService } from './nestjs-consul-kv-realtime-bootstrap.service';
 import {
+  NESTJS_CONSUL_KV_REALTIME_OPTIONS_TOKEN,
   NestjsConsulKvRealtimeAsyncOptions,
   NestjsConsulKvRealtimeConfigService,
   NestjsConsulKvRealtimeOptions,
-  NESTJS_CONSUL_KV_REALTIME_OPTIONS_TOKEN,
 } from './nestjs-consul-kv-realtime.config';
 import { NestjsConsulKvRealtimeService } from './nestjs-consul-kv-realtime.service';
 
@@ -37,13 +37,14 @@ export class NestjsConsulKvRealtimeModule {
           ): Promise<void> => {
             const newOptions: NestjsConsulKvRealtimeOptions =
               await options.useFactory(...args);
+            const logger =
+              newOptions.logger ||
+              new Logger(
+                NestjsConsulKvRealtimeModule.name.replace('Module', '')
+              );
             Object.assign(nestjsConsulKvRealtimeConfigService, {
               ...newOptions,
-              logger:
-                newOptions.logger ||
-                new Logger(
-                  NestjsConsulKvRealtimeModule.name.replace('Module', '')
-                ),
+              logger: newOptions.logger === false ? false : logger,
               initialized: true,
             });
           },
