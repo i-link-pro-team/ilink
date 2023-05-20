@@ -31,6 +31,11 @@ export class ConsulToEnvCommands {
           'clear .env file before save environment variables from consul (default: false)',
       },
       {
+        flags: '-x,--trimPaths [boolean]',
+        description:
+          'remove paths is key names exported from consul (default: false)',
+      },
+      {
         flags: '-h,--consul-host [string]',
         description: `host of consul server (default: ${DEFAULT_CONSUL_TO_ENV_CONFIG.consulToEnv.consulHost})`,
       },
@@ -64,6 +69,7 @@ export class ConsulToEnvCommands {
     consulKey,
     consulToken,
     clear,
+    trimPaths,
     consulDc,
     consulSecure,
   }: ConsulToEnvConfig['consulToEnv']) {
@@ -72,6 +78,7 @@ export class ConsulToEnvCommands {
       consulKey,
       consulToken,
       clear: clear || this.consulToEnvConfig.clear,
+      trimPaths: trimPaths || this.consulToEnvConfig.trimPaths,
       consulDc: consulDc,
       consulHost: consulHost || this.consulToEnvConfig.consulHost,
       consulPort: consulPort || this.consulToEnvConfig.consulPort,

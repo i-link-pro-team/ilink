@@ -25,6 +25,7 @@ export class ConsulToEnvService {
     consulHost,
     consulPort,
     consulSecure,
+    trimPaths,
     clear,
     path,
   }: ConsulToEnvConfig['consulToEnv']) {
@@ -79,8 +80,18 @@ export class ConsulToEnvService {
       const values: string[] = [];
       const envKeys = Object.keys(envData);
       for (let index = 0; index < envKeys.length; index++) {
-        const key = envKeys[index];
-        const value = envData[key];
+        const envKeyArray = envKeys[index].split('/');
+        const value = envData[envKeys[index]];
+        const key = trimPaths
+          ? envKeyArray[envKeyArray.length - 1]
+          : envKeys[index];
+        if (trimPaths && key !== envKeys[index]) {
+          values.push(
+            `# ${envKeyArray
+              .filter((v, i) => i < envKeyArray.length - 1)
+              .join('/')}`
+          );
+        }
         values.push(`${key}=${isNaN(+value) ? `"${value}"` : value}`);
       }
       writeFileSync(envFilePath, values.join('\n'));
