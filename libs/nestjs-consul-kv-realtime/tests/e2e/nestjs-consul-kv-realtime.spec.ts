@@ -131,7 +131,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
     // check loaded envs at start
     expect(valueFromWatcher).toEqual({ key1: 'value2' });
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -192,7 +194,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
     // check loaded envs after add watcher
     expect(valueFromWatcher).toEqual({ key1: 'value2' });
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -263,7 +267,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
     const nestjsConsulKvRealtimeService =
       app.get<NestjsConsulKvRealtimeService>(NestjsConsulKvRealtimeService);
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
 
@@ -322,7 +328,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
 
     expect(countFromWatchers).toEqual(1);
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -385,7 +393,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
 
     expect(countFromWatchers).toEqual(1);
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -397,7 +407,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
     // unsubscribe and try change value
     subscription.unsubscribe();
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value4"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value4"');
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -463,7 +475,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
       key1: 'value2',
     });
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -544,7 +558,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
       key1: 'value2',
     });
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -653,7 +669,9 @@ describe('NestjsConsulKvRealtime (e2e)', () => {
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    await nestjsConsulKvRealtimeService.set('file/key1', '"value3"');
+    await nestjsConsulKvRealtimeService
+      .getConsulKv()
+      .set('file/key1', '"value3"');
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 

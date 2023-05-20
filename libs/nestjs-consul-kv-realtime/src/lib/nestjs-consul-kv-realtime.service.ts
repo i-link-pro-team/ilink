@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import Consul from 'consul';
-import { from, merge, of, Subject } from 'rxjs';
+import { Subject, from, merge, of } from 'rxjs';
 import { filter, finalize, map, mergeMap, tap } from 'rxjs/operators';
 import { NestjsConsulKvRealtimeConfigService } from './nestjs-consul-kv-realtime.config';
 import { NestjsConsulKvRealtimeWatcher } from './nestjs-consul-kv-realtime.types';
 
 @Injectable()
-export class NestjsConsulKvRealtimeService extends Consul.Kv {
+export class NestjsConsulKvRealtimeService {
   public static _instance: NestjsConsulKvRealtimeService;
 
   public static getInstance() {
@@ -22,11 +22,30 @@ export class NestjsConsulKvRealtimeService extends Consul.Kv {
     value: unknown;
   }>();
 
+  private consul!: Consul.Consul;
+  private consulKv!: Consul.Kv;
+
   constructor(
     private readonly nestjsConsulKvRealtimeConfigService: NestjsConsulKvRealtimeConfigService
   ) {
-    super(new Consul());
     NestjsConsulKvRealtimeService._instance = this;
+  }
+
+  getConsul() {
+    if (!this.consul) {
+      this.consul = new Consul(this.nestjsConsulKvRealtimeConfigService);
+    }
+    return this.consul;
+  }
+
+  getConsulKv() {
+    if (!this.consul) {
+      this.consul = new Consul(this.nestjsConsulKvRealtimeConfigService);
+    }
+    if (!this.consulKv) {
+      this.consulKv = this.consul.kv;
+    }
+    return this.consulKv;
   }
 
   async addAllWatchers() {
@@ -62,9 +81,10 @@ export class NestjsConsulKvRealtimeService extends Consul.Kv {
   }
 
   async addWatcher(watcher: NestjsConsulKvRealtimeWatcher) {
-    if (watcher.interval === undefined) {
-      watcher.interval = 1000;
-    }
+    watcher.interval =
+      watcher.interval ||
+      this.nestjsConsulKvRealtimeConfigService.interval ||
+      1000;
 
     const index = this.watcherRefs.push({ timeoutRef: null, watcher }) - 1;
 
@@ -100,11 +120,22 @@ export class NestjsConsulKvRealtimeService extends Consul.Kv {
   }
 
   async getValue<T>(key: string) {
-    const keys = await this.keys<string[]>(key);
+    let consul: Consul.Kv;
+    try {
+      consul = this.getConsulKv();
+    } catch (err) {
+      if (this.nestjsConsulKvRealtimeConfigService.useUndefinedValueForErrors) {
+        this.nestjsConsulKvRealtimeConfigService.logger.error(err, err.stack);
+        return undefined;
+      }
+      throw err;
+    }
+
+    const keys = await consul.keys<string[]>(key);
     const envData = {};
     for (let keyIndex = 0; keyIndex < keys.length; keyIndex++) {
       const eachKey = keys[keyIndex].split(key + '/')[1];
-      const value = (await this.get<{ Value: string }>(`${key}/${eachKey}`))
+      const value = (await consul.get<{ Value: string }>(`${key}/${eachKey}`))
         .Value;
       try {
         envData[eachKey] = JSON.parse(value);

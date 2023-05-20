@@ -15,6 +15,8 @@ export const NESTJS_CONSUL_KV_REALTIME_OPTIONS_TOKEN = Symbol(
 export type NestjsConsulKvRealtimeOptions = Omit<ConsulOptions, 'promisify'> & {
   watchers?: NestjsConsulKvRealtimeWatcher[];
   logger?: Logger;
+  useUndefinedValueForErrors?: boolean;
+  interval?: number;
 };
 
 export interface NestjsConsulKvRealtimeAsyncOptions<
@@ -37,6 +39,8 @@ export class NestjsConsulKvRealtimeConfigService
 
   watchers: NestjsConsulKvRealtimeWatcher[] = [];
   logger!: Logger;
+  useUndefinedValueForErrors?: boolean;
+  interval?: number;
 
   initialized = false;
 

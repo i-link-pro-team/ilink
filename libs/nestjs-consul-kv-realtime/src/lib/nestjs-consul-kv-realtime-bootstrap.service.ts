@@ -1,6 +1,4 @@
 import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
-import Consul from 'consul';
-import { NestjsConsulKvRealtimeConfigService } from './nestjs-consul-kv-realtime.config';
 import { addAllFirstValuesForDecoratedFields } from './nestjs-consul-kv-realtime.decorators';
 import { NestjsConsulKvRealtimeService } from './nestjs-consul-kv-realtime.service';
 
@@ -9,7 +7,6 @@ export class NestjsConsulKvRealtimeBootstrapService
   implements OnModuleInit, OnModuleDestroy
 {
   constructor(
-    private readonly nestjsConsulKvRealtimeConfigService: NestjsConsulKvRealtimeConfigService,
     private readonly nestjsConsulKvRealtimeService: NestjsConsulKvRealtimeService
   ) {}
 
@@ -19,10 +16,6 @@ export class NestjsConsulKvRealtimeBootstrapService
   }
 
   async onModuleInit() {
-    Object.assign(
-      this.nestjsConsulKvRealtimeService,
-      new Consul(this.nestjsConsulKvRealtimeConfigService).kv
-    );
     await this.nestjsConsulKvRealtimeService.addAllWatchers();
     await addAllFirstValuesForDecoratedFields();
   }
