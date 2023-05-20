@@ -41,7 +41,7 @@
     "build": "npm run nx -- run-many --target=build --all && ./scripts/add-header-to-ilink.js && npm run lib:build-changelog",
     "release": "standard-version -a",
     "publish-all": "npm publish ./dist/libs/ilink-console-tools && npm publish ./dist/libs/nestjs-consul-kv-realtime",
-    "publish": "npm publish ./dist/libs/ilink-console-tools",
+    "publish": "npm publish ./dist/libs/ilink-console-tools && npm publish ./dist/libs/nestjs-consul-kv-realtime",
     "create-release": "npm run test && npm run build && npm run release && git push --follow-tags origin develop",
     "test": "npm run build && npm run nx -- run-many --target=test --all",
     "lint": "npm run tsc:lint && nx workspace-lint && nx run-many --target=lint --all",
