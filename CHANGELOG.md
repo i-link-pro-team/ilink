@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/i-link-pro-team/ilink/compare/v0.1.6...v0.1.7) (2023-05-20)
+
+### Features
+
+- **ilink-console-tools:** append trimPaths option for remove paths ([93d5c57](https://github.com/i-link-pro-team/ilink/commit/93d5c57ee80fa20816bf647336d8d6aae39f4af4))
+
 ### [0.1.6](https://github.com/i-link-pro-team/ilink/compare/v0.1.5...v0.1.6) (2023-05-20)
 
 ### Features
