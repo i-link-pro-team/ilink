@@ -26,6 +26,7 @@ export class ConsulToEnvService {
     consulPort,
     consulSecure,
     trimPaths,
+    singleQuote,
     clear,
     path,
   }: ConsulToEnvConfig['consulToEnv']) {
@@ -92,7 +93,15 @@ export class ConsulToEnvService {
               .join('/')}`
           );
         }
-        values.push(`${key}=${isNaN(+value) ? `"${value}"` : value}`);
+        if (singleQuote) {
+          values.push(
+            `${key}=${
+              isNaN(+value) ? `'${value.split("'").join("''")}'` : value
+            }`
+          );
+        } else {
+          values.push(`${key}=${isNaN(+value) ? `"${value}"` : value}`);
+        }
       }
       writeFileSync(envFilePath, values.join('\n'));
       this.logger.info('End save environment variables from consul to file!');

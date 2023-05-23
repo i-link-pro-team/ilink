@@ -31,6 +31,10 @@ export class ConsulToEnvCommands {
           'clear .env file before save environment variables from consul (default: false)',
       },
       {
+        flags: '-q,--singleQuote [boolean]',
+        description: 'use single quote when writing to file (default: false)',
+      },
+      {
         flags: '-x,--trimPaths [boolean]',
         description:
           'remove paths is key names exported from consul (default: false)',
@@ -70,6 +74,7 @@ export class ConsulToEnvCommands {
     consulToken,
     clear,
     trimPaths,
+    singleQuote,
     consulDc,
     consulSecure,
   }: ConsulToEnvConfig['consulToEnv']) {
@@ -79,6 +84,7 @@ export class ConsulToEnvCommands {
       consulToken,
       clear: clear || this.consulToEnvConfig.clear,
       trimPaths: trimPaths || this.consulToEnvConfig.trimPaths,
+      singleQuote: singleQuote || this.consulToEnvConfig.singleQuote,
       consulDc: consulDc,
       consulHost: consulHost || this.consulToEnvConfig.consulHost,
       consulPort: consulPort || this.consulToEnvConfig.consulPort,

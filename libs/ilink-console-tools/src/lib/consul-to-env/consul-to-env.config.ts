@@ -3,6 +3,7 @@ export interface ConsulToEnvConfig {
     path?: string;
     clear?: boolean;
     trimPaths?: boolean;
+    singleQuote?: boolean;
     consulHost?: string;
     consulPort?: number;
     consulDc?: string;
@@ -22,6 +23,7 @@ export const DEFAULT_CONSUL_TO_ENV_CONFIG: {
     path: '.env',
     clear: false,
     trimPaths: false,
+    singleQuote: false,
     consulHost: 'localhost',
     consulPort: 8500,
     consulSecure: false,
