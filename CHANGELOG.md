@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/i-link-pro-team/ilink/compare/v0.1.9...v0.1.10) (2023-05-23)
+
+### Features
+
+- **consul-to-env:** append singleQuote to config ([0e06e84](https://github.com/i-link-pro-team/ilink/commit/0e06e8420eca288ff16ad059e5269b6789ccea10))
+
 ### [0.1.9](https://github.com/i-link-pro-team/ilink/compare/v0.1.8...v0.1.9) (2023-05-20)
 
 ### [0.1.8](https://github.com/i-link-pro-team/ilink/compare/v0.1.7...v0.1.8) (2023-05-20)
